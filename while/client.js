@@ -99,3 +99,5 @@ let onStateChanged = (user) => {
 };
 
 //////////////// call Auth state changed ////////////
+
+onStateChanged();
