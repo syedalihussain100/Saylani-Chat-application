@@ -77,7 +77,6 @@ logout.addEventListener("click", (e) => {
     .auth()
     .signOut()
     .then(() => {
-      console.log("user sign out");
     });
 });
 
