@@ -76,8 +76,7 @@ logout.addEventListener("click", (e) => {
   firebase
     .auth()
     .signOut()
-    .then(() => {
-    });
+    .then(() => {});
 });
 
 let onFirebaseStateChanged = () => {
@@ -98,6 +97,9 @@ let onStateChanged = (user) => {
     document.getElementById(
       "img-profile"
     ).title = firebase.auth().currentUser.displayName;
+    document.getElementById(
+      "logout"
+    ).src = firebase.auth().signOut().currentUser.photoURL;
   }
 };
 
