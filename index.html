@@ -4,24 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaid chat app</title>
+    <title>Chatting-Application</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
 
     <script>
         // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         var firebaseConfig = {
-            apiKey: "AIzaSyDrbIuefdl0FeAOsWp6UVA31UDb5CSm-w4",
-            authDomain: "sayalni-chat.firebaseapp.com",
-            databaseURL: "https://sayalni-chat.firebaseio.com",
-            projectId: "sayalni-chat",
-            storageBucket: "sayalni-chat.appspot.com",
-            messagingSenderId: "5955265502",
-            appId: "1:5955265502:web:aa7d5c2a6c329de246f34f",
-            measurementId: "G-TB859FV72H"
+            apiKey: "AIzaSyDAYVde7Y4h23tCxQAzjAjaGxvYL5NH4ds",
+            authDomain: "chat-app-b2b36.firebaseapp.com",
+            databaseURL: "https://chat-app-b2b36.firebaseio.com",
+            projectId: "chat-app-b2b36",
+            storageBucket: "chat-app-b2b36.appspot.com",
+            messagingSenderId: "701637866118",
+            appId: "1:701637866118:web:11be87d047d8f971e61707",
+            measurementId: "G-QKD8P7T5DP"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -34,17 +35,28 @@
 
 <body>
     <section class="chat__section">
+
         <div class="brand">
-            <img id="img-profile" class="rounded-circle" height="40px" src="download.jpg" alt="image">
-            <h1>Saylani Chatting</h1>
+            <img id="img-profile" class="rounded-circle" width="50px" height="40px" src="download.jpg" alt="image">
+            <h1 class="text-secondary">Chat-Application!</h1>
         </div>
-        <div class="message__area"></div>
-        <div>
+        <div class="message__area">
+        </div>
+        <div class="mb-3">
+            <textarea id="textarea" class="form-control is-invalid" id="validationTextarea"
+                placeholder="Write a message..." required></textarea>
+            <div class="invalid-feedback">
+                Please enter a message!
+            </div>
+        </div>
+        <!-- <div>
             <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
-        </div>
+        </div> -->
 
         <div class="text-center">
-            <button onclick="foo()" class="btn btn-outline-primary">Sign In</button>
+            <button onclick="facebook_login()" class="btn btn-outline-primary">Facebook Login</button>
+            <button onclick="facebook_logout()" class="btn btn-outline-warning">Facebook Logout</button>
+
 
         </div>
 

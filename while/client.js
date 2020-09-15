@@ -20,6 +20,7 @@ function sendMessage(message) {
   // Append
   appendMessage(msg, "outgoing");
   textarea.value = "";
+
   scrollToBottom();
 
   // Send to server
@@ -29,6 +30,7 @@ function sendMessage(message) {
 function appendMessage(msg, type) {
   let mainDiv = document.createElement("div");
   let className = type;
+
   mainDiv.classList.add(className, "message");
 
   let markup = `
@@ -51,14 +53,32 @@ function scrollToBottom() {
 
 ///////////////// firebase Authentication ///////////
 
-let foo = () => {
-  var provider = new firebase.auth.GoogleAuthProvider();
-
-  firebase.auth().signInWithPopup(provider);
+const facebook_login = () => {
+  var provider = new firebase.auth.FacebookAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(function (result) {
+      var user = result.user;
+      console.log("user", user);
+    })
+    .catch(function (error) {
+      console.log(`Error===> ${error.message}`);
+      // ...
+    });
 };
 
-let onFirebaseStateChanged = () => {
-  firebase.auth().onAuthStateChanged(onStateChanged);
+let facebook_logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(function () {
+      // Sign-out successful.
+    })
+    .catch(function (error) {
+      // An error happened.
+      console.log("signout", error);
+    });
 };
 
 let onStateChanged = (user) => {
@@ -79,5 +99,3 @@ let onStateChanged = (user) => {
 };
 
 //////////////// call Auth state changed ////////////
-
-onFirebaseStateChanged();
