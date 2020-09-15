@@ -68,11 +68,15 @@ const facebook_login = () => {
     });
 };
 
-let facebook_logout = () => {
-  FB.logout(function (response) {
-    console.log(response);
+///////////  Logout ////////////
+
+const logout = document.querySelector("#logout");
+logout.addEventListener("click", (e) => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    console.log("user sign out");
   });
-};
+});
 
 let onFirebaseStateChanged = () => {
   firebase.auth().onAuthStateChanged(onStateChanged);
