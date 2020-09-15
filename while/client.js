@@ -75,9 +75,8 @@ let facebook_logout = () => {
     .then(function () {
       // Sign-out successful.
     })
-    .catch(function (error) {
+    .catch(function () {
       // An error happened.
-      console.log("signout", error);
     });
 };
 
