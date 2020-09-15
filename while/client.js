@@ -81,6 +81,10 @@ let facebook_logout = () => {
     });
 };
 
+let onFirebaseStateChanged = () => {
+  firebase.auth().onAuthStateChanged(onStateChanged);
+};
+
 let onStateChanged = (user) => {
   if (user) {
     // alert(
@@ -100,4 +104,4 @@ let onStateChanged = (user) => {
 
 //////////////// call Auth state changed ////////////
 
-onStateChanged();
+onFirebaseStateChanged();
