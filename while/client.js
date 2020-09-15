@@ -69,15 +69,9 @@ const facebook_login = () => {
 };
 
 let facebook_logout = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(function () {
-      // Sign-out successful.
-    })
-    .catch(function () {
-      // An error happened.
-    });
+  FB.logout(function (response) {
+    console.log(response);
+  });
 };
 
 let onFirebaseStateChanged = () => {
