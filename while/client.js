@@ -70,15 +70,6 @@ const facebook_login = () => {
 
 ///////////  Logout ////////////
 
-const logout = document.querySelector("#logout");
-logout.addEventListener("click", (e) => {
-  e.preventDefault();
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {});
-});
-
 let onFirebaseStateChanged = () => {
   firebase.auth().onAuthStateChanged(onStateChanged);
 };
@@ -97,9 +88,17 @@ let onStateChanged = (user) => {
     document.getElementById(
       "img-profile"
     ).title = firebase.auth().currentUser.displayName;
-    document.getElementById(
-      "logout"
-    ).src = firebase.auth().signOut().currentUser.photoURL;
+
+    const logout = document.querySelector("#logout");
+    logout.addEventListener("click", (e) => {
+      e.preventDefault();
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("user sign out");
+        });
+    });
   }
 };
 
